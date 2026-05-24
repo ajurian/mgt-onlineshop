@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ShoppingCart, Star } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { toast } from "sonner";
 import { useCart } from "../contexts/cart-context";
 
 interface ProductCardProps {
@@ -35,6 +36,7 @@ export default function ProductCard({
     }
 
     addItem({ id, name, price, imageQuery });
+    toast.success("Added to cart", { description: name });
   };
 
   return (

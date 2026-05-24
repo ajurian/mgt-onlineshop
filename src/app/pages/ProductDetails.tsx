@@ -8,6 +8,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { toast } from "sonner";
 import { useCart } from "../contexts/cart-context";
 
 const allProducts = {
@@ -378,6 +379,7 @@ export default function ProductDetails() {
       price: product.price,
       imageQuery: product.imageQuery,
     });
+    toast.success("Added to cart", { description: product.name });
   };
 
   return (
