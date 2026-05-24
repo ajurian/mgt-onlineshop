@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ShoppingCart, Star } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useCart } from "../contexts/cart-context";
 
 interface ProductCardProps {
   id?: string;
@@ -23,9 +24,18 @@ export default function ProductCard({
   imageQuery,
   inStock,
 }: ProductCardProps) {
+  const { addItem } = useCart();
   const discount = originalPrice
     ? Math.round(((originalPrice - price) / originalPrice) * 100)
     : 0;
+
+  const handleAddToCart = () => {
+    if (!id || !inStock) {
+      return;
+    }
+
+    addItem({ id, name, price, imageQuery });
+  };
 
   return (
     <div className="bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-shadow overflow-hidden group">
@@ -93,8 +103,9 @@ export default function ProductCard({
         </div>
 
         <button
-          disabled={!inStock}
+          disabled={!inStock || !id}
           className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white py-2 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+          onClick={handleAddToCart}
         >
           <ShoppingCart size={18} />
           Add to Cart

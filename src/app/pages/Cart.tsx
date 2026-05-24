@@ -1,29 +1,11 @@
 import { Link } from "react-router";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-
-const cartItems = [
-  {
-    id: "gpu-1",
-    name: "NVIDIA GeForce RTX 4090 24GB",
-    price: 1599.99,
-    quantity: 1,
-    imageQuery: "graphics-card",
-  },
-  {
-    id: "ram-1",
-    name: "G.SKILL Trident Z5 RGB 64GB DDR5 6400MHz",
-    price: 249.99,
-    quantity: 2,
-    imageQuery: "ram-memory",
-  },
-];
+import { useCart } from "../contexts/cart-context";
 
 export default function Cart() {
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0,
-  );
+  const { items, subtotal, increment, decrement, removeItem } = useCart();
+  const cartItems = items;
   const shipping = subtotal > 3000 ? 0 : 500;
   const tax = subtotal * 0.08;
   const total = subtotal + shipping + tax;
@@ -58,7 +40,7 @@ export default function Cart() {
                 >
                   <div className="w-24 h-24 bg-slate-100 rounded-lg overflow-hidden flex-shrink-0">
                     <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=200&h=200&fit=crop&q=80"
+                      src={item.imageQuery}
                       alt={item.name}
                       className="w-full h-full object-cover"
                     />
@@ -72,18 +54,27 @@ export default function Cart() {
 
                     <div className="flex items-center gap-3">
                       <div className="flex items-center border border-slate-300 rounded-lg">
-                        <button className="p-2 hover:bg-slate-100 transition-colors">
+                        <button
+                          className="p-2 hover:bg-slate-100 transition-colors"
+                          onClick={() => decrement(item.id)}
+                        >
                           <Minus size={16} />
                         </button>
                         <div className="px-4 py-2 border-x border-slate-300 min-w-[3rem] text-center">
                           {item.quantity}
                         </div>
-                        <button className="p-2 hover:bg-slate-100 transition-colors">
+                        <button
+                          className="p-2 hover:bg-slate-100 transition-colors"
+                          onClick={() => increment(item.id)}
+                        >
                           <Plus size={16} />
                         </button>
                       </div>
 
-                      <button className="text-red-600 hover:text-red-700 p-2">
+                      <button
+                        className="text-red-600 hover:text-red-700 p-2"
+                        onClick={() => removeItem(item.id)}
+                      >
                         <Trash2 size={20} />
                       </button>
                     </div>

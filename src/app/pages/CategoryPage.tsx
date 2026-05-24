@@ -1,7 +1,7 @@
 import { useLocation } from "react-router";
 import ProductCard from "../components/ProductCard";
 
-const categoryData = {
+export const categoryData = {
   gpu: {
     title: "Graphics Card",
     description:

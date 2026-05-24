@@ -1,8 +1,11 @@
 import { Link } from "react-router";
 import { ShoppingCart, Search, User, Menu } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useCart } from "../contexts/cart-context";
 
 export default function Header() {
+  const { totalItems } = useCart();
+
   return (
     <header className="bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-4">
@@ -80,9 +83,11 @@ export default function Header() {
               className="hover:text-blue-400 transition-colors relative"
             >
               <ShoppingCart size={20} />
-              <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                2
-              </span>
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
             </Link>
             <button className="md:hidden hover:text-blue-400 transition-colors">
               <Menu size={20} />

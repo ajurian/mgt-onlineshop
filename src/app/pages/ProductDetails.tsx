@@ -8,6 +8,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { useCart } from "../contexts/cart-context";
 
 const allProducts = {
   // --- GRAPHICS CARDS ---
@@ -346,6 +347,7 @@ const allProducts = {
 
 export default function ProductDetails() {
   const { id } = useParams();
+  const { addItem } = useCart();
   const product = allProducts[id as keyof typeof allProducts];
 
   if (!product) {
@@ -364,6 +366,19 @@ export default function ProductDetails() {
         ((product.originalPrice - product.price) / product.originalPrice) * 100,
       )
     : 0;
+
+  const handleAddToCart = () => {
+    if (!id || !product.inStock) {
+      return;
+    }
+
+    addItem({
+      id,
+      name: product.name,
+      price: product.price,
+      imageQuery: product.imageQuery,
+    });
+  };
 
   return (
     <div className="bg-slate-50 min-h-screen py-8">
@@ -454,6 +469,7 @@ export default function ProductDetails() {
             <button
               disabled={!product.inStock}
               className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors mb-6"
+              onClick={handleAddToCart}
             >
               <ShoppingCart size={20} />
               Add to Cart
