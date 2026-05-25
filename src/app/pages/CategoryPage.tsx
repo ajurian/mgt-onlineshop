@@ -150,7 +150,7 @@ export const categoryData = {
         price: 8999.99,
         rating: 4.8,
         reviews: 312,
-        imageQuery: "/keyboard.jpeg",
+        imageQuery: "/keyboard_prowireless.png",
         inStock: true,
       },
       {
@@ -159,7 +159,7 @@ export const categoryData = {
         price: 11399.99,
         rating: 4.9,
         reviews: 524,
-        imageQuery: "/keyboard.jpeg",
+        imageQuery: "/keyboard_gamingrgb.png",
         inStock: true,
       },
       {
@@ -168,7 +168,7 @@ export const categoryData = {
         price: 7799.99,
         rating: 4.6,
         reviews: 187,
-        imageQuery: "/keyboard.jpeg",
+        imageQuery: "/keyboard_slimmechanical.png",
         inStock: true,
       },
     ],
@@ -184,7 +184,7 @@ export const categoryData = {
         price: 5399.99,
         rating: 4.8,
         reviews: 421,
-        imageQuery: "/mouse.jpeg",
+        imageQuery: "/mouse_ultralightwireless.png",
         inStock: true,
       },
       {
@@ -193,7 +193,7 @@ export const categoryData = {
         price: 3599.99,
         rating: 4.7,
         reviews: 265,
-        imageQuery: "/mouse.jpeg",
+        imageQuery: "/mouse_ergonomicoffice.png",
         inStock: true,
       },
       {
@@ -202,7 +202,7 @@ export const categoryData = {
         price: 4199.99,
         rating: 4.9,
         reviews: 512,
-        imageQuery: "/mouse.jpeg",
+        imageQuery: "/mouse_prorgbwired.png",
         inStock: true,
       },
     ],

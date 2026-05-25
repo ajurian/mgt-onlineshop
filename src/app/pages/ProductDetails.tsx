@@ -243,7 +243,7 @@ const allProducts = {
     originalPrice: 8999.99,
     rating: 4.8,
     reviews: 312,
-    imageQuery: "/keyboard.jpeg",
+    imageQuery: "/keyboard_prowireless.png",
     inStock: true,
     category: "Keyboard",
     specs: [
@@ -261,7 +261,7 @@ const allProducts = {
     originalPrice: 11399.99,
     rating: 4.9,
     reviews: 524,
-    imageQuery: "/keyboard.jpeg",
+    imageQuery: "/keyboard_gamingrgb.png",
     inStock: true,
     category: "Keyboard",
     specs: [
@@ -299,7 +299,7 @@ const allProducts = {
     originalPrice: 5399.99,
     rating: 4.8,
     reviews: 421,
-    imageQuery: "/mouse.jpeg",
+    imageQuery: "/mouse_ultralightwireless.png",
     inStock: true,
     category: "Mouse",
     specs: [
@@ -316,7 +316,7 @@ const allProducts = {
     originalPrice: 3599.99,
     rating: 4.7,
     reviews: 265,
-    imageQuery: "/mouse.jpeg",
+    imageQuery: "/mouse_ergonomicoffice.png",
     inStock: true,
     category: "Mouse",
     specs: [
@@ -333,7 +333,7 @@ const allProducts = {
     originalPrice: 4199.99,
     rating: 4.9,
     reviews: 512,
-    imageQuery: "/mouse.jpeg",
+    imageQuery: "/mouse_prorgbwired.png",
     inStock: true,
     category: "Mouse",
     specs: [
@@ -399,7 +399,7 @@ export default function ProductDetails() {
             <ImageWithFallback
               src={product.imageQuery}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
 
