@@ -1,7 +1,6 @@
 import { Link } from "react-router";
-import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import mgtLogo from "../../assets/MGT_Logo.png";
 
 export default function Footer() {
   return (
@@ -13,7 +12,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="relative w-12 h-12 aspect-square bg-slate-100 overflow-hidden rounded-full">
                 <ImageWithFallback
-                  src={mgtLogo}
+                  src="/MGT_Logo.png"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -100,11 +99,31 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Shipping Info</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Returns</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Warranty</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Shipping Info
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Returns
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Warranty
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -112,11 +131,31 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Blog
+                </a>
+              </li>
             </ul>
           </div>
         </div>
