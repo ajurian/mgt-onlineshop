@@ -7,14 +7,12 @@ export default function Hero() {
             Build Your Dream PC
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Premium computer parts and components at unbeatable prices. Free shipping on orders over &#8369;3,000.
+            Premium computer parts and components at unbeatable prices. Free
+            shipping on orders over &#8369;3,000.
           </p>
           <div className="flex gap-4">
             <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors">
               Shop Now
-            </button>
-            <button className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-              PC Builder
             </button>
           </div>
         </div>
