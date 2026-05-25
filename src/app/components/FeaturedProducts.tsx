@@ -12,7 +12,7 @@ export const products = [
 
 export default function FeaturedProducts() {
   return (
-    <section className="py-16">
+    <section id="featured-products" className="py-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold">Featured Products</h2>
