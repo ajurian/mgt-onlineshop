@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { ShoppingCart, Search, User, Menu } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -5,6 +6,15 @@ import { useCart } from "../contexts/cart-context";
 
 export default function Header() {
   const { totalItems } = useCart();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleToggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleCloseMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="bg-slate-900 text-white">
@@ -89,11 +99,75 @@ export default function Header() {
                 </span>
               )}
             </Link>
-            <button className="md:hidden hover:text-blue-400 transition-colors">
+            <button
+              className="md:hidden hover:text-blue-400 transition-colors"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav"
+              onClick={handleToggleMobileMenu}
+            >
               <Menu size={20} />
             </button>
           </div>
         </div>
+
+        <nav
+          id="mobile-nav"
+          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="mt-4 flex flex-col gap-3 border-t border-slate-800 pt-4">
+            <Link
+              to="/"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              Home
+            </Link>
+            <Link
+              to="/category/gpu"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              GPU
+            </Link>
+            <Link
+              to="/category/cpu"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              CPU
+            </Link>
+            <Link
+              to="/category/ram"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              RAM
+            </Link>
+            <Link
+              to="/category/motherboard"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              Motherboard
+            </Link>
+            <Link
+              to="/category/keyboard"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              Keyboard
+            </Link>
+            <Link
+              to="/category/mouse"
+              className="hover:text-blue-400 transition-colors"
+              onClick={handleCloseMobileMenu}
+            >
+              Mouse
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );
